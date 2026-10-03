@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Calculadora Verde</title>
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Andale Mono", monospace;
+    background: #eef7f0;
+    color: #173b25;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+header {
+    background: #174d2b;
+    color: #fff;
+
+    padding: 20px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+
+    margin-left: 20px;
+
+    font-weight: bold;
+}
+
+
+/* ========================================
+   SEÇÕES
+======================================== */
+
+section {
+    max-width: 1150px;
+    margin: auto;
+
+    padding: 65px 8%;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+    max-width: none;
+
+    background: linear-gradient(
+        135deg,
+        #174d2b,
+        #31864c
+    );
+
+    color: #fff;
+
+    padding: 90px 10%;
+}
+
+.hero h2 {
+    margin: 0 0 15px;
+
+    font-size: 48px;
+}
+
+.hero p {
+    max-width: 700px;
+
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   BOTÃO
+======================================== */
+
+.btn {
+    display: inline-block;
+
+    background: #b8e986;
+    color: #173b25;
+
+    padding: 13px 22px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    margin-top: 15px;
+}
+
+
+/* ========================================
+   GRID
+======================================== */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(260px, 1fr)
+        );
+
+    gap: 22px;
+}
+
+
+/* ========================================
+   CARDS
+======================================== */
+
+.card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 18px #174d2b18;
+}
+
+.card h3 {
+    margin-top: 0;
+
+    color: #246b3b;
+}
+
+
+/* ========================================
+   CALCULADORA
+======================================== */
+
+.calc {
+    background: #fff;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px #174d2b20;
+}
+
+
+/* ========================================
+   CAMPOS
+======================================== */
+
+.fields {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(210px, 1fr)
+        );
+
+    gap: 18px;
+}
+
+.field label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+}
+
+.field input {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 2px solid #c8dfcd;
+
+    border-radius: 9px;
+
+    font-size: 16px;
+}
+
+
+/* ========================================
+   BOTÃO DA CALCULADORA
+======================================== */
+
+.calculate {
+    border: 0;
+
+    background: #246b3b;
+    color: white;
+
+    padding: 14px 24px;
+
+    border-radius: 9px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin-top: 20px;
+}
+
+
+/* ========================================
+   RESULTADOS
+======================================== */
+
+.results {
+    display: none;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+    margin-top: 25px;
+}
+
+.result {
+    background: #eef7f0;
+
+    padding: 20px;
+
+    border-radius: 13px;
+}
+
+.result strong {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 30px;
+}
+
+
+/* ========================================
+   AVISO / RECOMENDAÇÃO
+======================================== */
+
+.advice {
+    margin-top: 18px;
+
+    padding: 16px;
+
+    border-radius: 10px;
+
+    background: #fff3c4;
+}
+
+
+/* ========================================
+   TIMELINE
+======================================== */
+
+.timeline {
+    border-left: 4px solid #31864c;
+
+    padding-left: 22px;
+}
+
+.timeline div {
+    margin-bottom: 22px;
+}
+
+.timeline b {
+    color: #246b3b;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+    background: #123b22;
+    color: white;
+
+    padding: 35px;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 700px) {
+
+    /* Hero */
+
+    .hero h2 {
+        font-size: 36px;
+    }
+
+
+    /* Menu */
+
+    nav {
+        display: none;
+    }
+
+
+    /* Resultados */
+
+    .results {
+        grid-template-columns: 1fr;
+    }
+}
+```
+
+</style>
+</head>
+<body>
+<header><h1>Calculadora Verde</h1><nav><a href="#sobre">Sobre</a><a href="#ada">Ada Lovelace</a><a href="#calculadora">Calculadora</a></nav></header>
+<main>
+<section class="hero"><h2>Menos resíduos. Mais eficiência.</h2><p>Uma ferramenta educativa para avaliar a eficiência de uma reação química e entender a geração de resíduos.</p><a class="btn" href="#calculadora">Calcular agora</a></section>
+<section id="sobre"><h2>O que é a Calculadora Verde?</h2><div class="grid"><div class="card"><h3>Para que serve?</h3><p>O usuário informa a massa dos reagentes e do produto obtido. O sistema calcula automaticamente a eficiência de massa e o E-factor.</p></div></section>
+<section id="calculadora"><h2>Calculadora</h2><div class="calc"><p>Informe os valores em gramas.</p><div class="fields"><div class="field"><label for="reagentes">Massa dos reagentes (g)</label><input id="reagentes" type="number" min="0" step="any" placeholder="Ex.: 50"></div><div class="field"><label for="produto">Massa do produto (g)</label><input id="produto" type="number" min="0" step="any" placeholder="Ex.: 40"></div></div><button class="calculate" onclick="calcular()">Calcular</button><div class="results" id="results"><div class="result"><span>Eficiência de massa</span><strong id="eficiencia">—</strong></div><div class="result"><span>E-factor</span><strong id="efactor">—</strong></div></div><div class="advice" id="advice" style="display:none"></div></div></section>
+<section id="ada"><h2>Ada Lovelace</h2><div class="grid"><div class="card"><h3>Quem foi?</h3><p>Ada Lovelace (1815–1852) foi uma matemática e escritora inglesa. Seu trabalho esteve ligado às máquinas de cálculo e ao desenvolvimento inicial da computação.</p></div><div class="card"><h3>Principal contribuição</h3><p>Entre 1842 e 1843, Ada traduziu um artigo sobre a máquina analítica de Charles Babbage e acrescentou suas próprias anotações, incluindo um algoritmo que muitos consideram o primeiro programa de computador.</p></div><div class="card"><h3>Legado</h3><p>Suas ideias ajudaram a formar a base da programação e influenciaram o desenvolvimento da computação moderna.</p></div></div><h3 style="margin-top:40px">Linha do tempo</h3><div class="timeline"><div><b>1815</b><br>Nascimento de Ada Lovelace.</div><div><b>1840</b><br>Charles Babbage apresenta suas pesquisas na Universidade de Turim.</div><div><b>1842–1843</b><br>Ada traduz o artigo de Menabrea e escreve suas “Anotações”.</div><div><b>1852</b><br>Falecimento de Ada Lovelace.</div></div></section>
+<section><h2>Relação com a informática</h2><div class="card"><p>As ideias de Ada ajudaram a estabelecer a noção de criar algoritmos para que máquinas executem tarefas. A Calculadora Verde segue esse legado ao usar programação para resolver um problema científico e ambiental.</p></div></section>
+</main><footer>Calculadora Verde  • Ada Lovelace</footer>
+<script>
+function calcular(){const r=parseFloat(document.getElementById('reagentes').value),p=parseFloat(document.getElementById('produto').value);if(!r||r<=0||isNaN(p)||p<0){alert('Informe massas válidas.');return}const eficiencia=(p/r)*100;const efactor=(r-p)/p;document.getElementById('eficiencia').textContent=eficiencia.toFixed(2)+'%';document.getElementById('efactor').textContent=p>0?efactor.toFixed(2):'—';document.getElementById('results').style.display='grid';const a=document.getElementById('advice');a.style.display='block';if(eficiencia>=75)a.textContent='Ótimo aproveitamento de massa. Continue buscando reduzir resíduos.';else if(eficiencia<75 && eficiencia>=50)a.textContent='Bom aproveitamento, mas ainda há espaço para reduzir a geração de resíduos.';else a.textContent='A eficiência está baixa. Reveja o processo para tentar diminuir a quantidade de resíduos.'}
+</script></body></html>
